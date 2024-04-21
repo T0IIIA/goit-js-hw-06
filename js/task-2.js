@@ -1,38 +1,33 @@
-const getUsersWithFriend = (users, friendName) => users.filter(user => user.friends.includes(friendName));
-
-const allUsers = [
-  {
-    name: "Moore Hensley",
-    friends: ["Sharron Pace"]
-  },
-  {
-    name: "Sharlene Bush",
-    friends: ["Briana Decker", "Sharron Pace"]
-  },
-  {
-    name: "Ross Vazquez",
-    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"]
-  },
-  {
-    name: "Elma Head",
-    friends: ["Goldie Gentry", "Aisha Tran"]
-  },
-  {
-    name: "Carey Barr",
-    friends: ["Jordan Sampson", "Eddie Strong"]
-  },
-  {
-    name: "Blackburn Dotson",
-    friends: ["Jacklyn Lucas", "Linda Chapman"]
-  },
-  {
-    name: "Sheree Anthony",
-    friends: ["Goldie Gentry", "Briana Decker"]
+class Storage {
+  constructor(items) {
+    this.items = items;
   }
-];
+
+  getItems() {
+    return this.items;
+  }
+  addItem(newItem) {
+    this.items.push(newItem);
+  }
+  removeItem(itemToRemove) {
+    this.items = this.items.filter(item => item !== itemToRemove);
+  }
+
+};
+
+
+//=======================================================================//
 
 console.log("----------task-2----------");
 
-console.log(getUsersWithFriend(allUsers, "Briana Decker")); 
-console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
-console.log(getUsersWithFriend(allUsers, "Adrian Cross" ));
+const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+console.log(storage.getItems());
+
+storage.addItem("Droid");
+console.log(storage.getItems());
+
+storage.removeItem("Prolonger");
+console.log(storage.getItems());
+
+storage.removeItem("Scaner");
+console.log(storage.getItems());
